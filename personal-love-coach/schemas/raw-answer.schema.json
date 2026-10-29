@@ -1,0 +1,37 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "round_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{0,63}$"
+    },
+    "case_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{0,63}$"
+    },
+    "answer": {
+      "type": "string",
+      "minLength": 1
+    },
+    "date": {
+      "type": "string",
+      "format": "date"
+    },
+    "hint_used": {
+      "type": "boolean"
+    },
+    "hint_correction_id": {
+      "type": "string",
+      "minLength": 1
+    }
+  },
+  "required": [
+    "round_id",
+    "case_id",
+    "answer",
+    "date",
+    "hint_used"
+  ],
+  "additionalProperties": false
+}

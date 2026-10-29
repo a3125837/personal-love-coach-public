@@ -1,0 +1,9 @@
+{
+  "id": "status-one",
+  "round_id": "demo-session",
+  "case_id": "PLC-005",
+  "date": "2026-10-28",
+  "kind": "response_status",
+  "status": "cannot_formulate",
+  "reason": "虚构示例：暂时不知道怎样自然分享。"
+}

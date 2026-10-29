@@ -1,0 +1,25 @@
+{
+  "id": "demo-1",
+  "round_id": "demo-session",
+  "case_id": "PLC-004",
+  "relationship_id": "simulation",
+  "date": "2026-10-22",
+  "mode": "training",
+  "rubric_version": "rubric-3.0",
+  "level": 2,
+  "category": "empathy",
+  "answer": "修了又出故障，确实挺扫兴的。你现在想先歇一下吗？",
+  "attempt": 1,
+  "hint_used": false,
+  "critical_error": false,
+  "scores": {
+    "naturalness": 4,
+    "boundaries": 4,
+    "evidence": 3,
+    "interaction": 4,
+    "progression": 3
+  },
+  "errors": [],
+  "action_planned": null,
+  "action_completed": null
+}

@@ -1,0 +1,21 @@
+{
+  "id": "CUSTOM-EXAM-001",
+  "split": "exam",
+  "source_type": "synthetic",
+  "level": 4,
+  "category": "dating",
+  "input": "首次参加社区观鸟活动，对方想提前结束，你如何回应？",
+  "facts": [
+    "正在参加公共活动",
+    "对方提出提前结束"
+  ],
+  "unknowns": [
+    "是否需要调整返回安排"
+  ],
+  "expected": [
+    "接受结束意愿并核对必要安排"
+  ],
+  "failures": [
+    "用已花时间迫使继续"
+  ]
+}

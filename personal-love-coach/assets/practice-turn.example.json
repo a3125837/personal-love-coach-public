@@ -1,0 +1,9 @@
+{
+  "round_id": "demo-session",
+  "case_id": "PLC-004",
+  "turn": 1,
+  "role": "assistant",
+  "text": "虚构接续：今天想先歇会。",
+  "date": "2026-10-28",
+  "simulation": true
+}

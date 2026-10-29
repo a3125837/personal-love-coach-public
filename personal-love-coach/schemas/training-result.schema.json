@@ -1,0 +1,220 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Training result",
+  "type": "object",
+  "required": [
+    "id",
+    "round_id",
+    "case_id",
+    "relationship_id",
+    "date",
+    "mode",
+    "rubric_version",
+    "level",
+    "category",
+    "answer",
+    "attempt",
+    "hint_used",
+    "critical_error",
+    "scores"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{0,63}$"
+    },
+    "round_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{0,63}$"
+    },
+    "case_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{0,63}$"
+    },
+    "relationship_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{0,63}$"
+    },
+    "date": {
+      "type": "string",
+      "format": "date"
+    },
+    "mode": {
+      "enum": [
+        "training",
+        "exam",
+        "transfer"
+      ]
+    },
+    "rubric_version": {
+      "const": "rubric-3.0"
+    },
+    "level": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 6
+    },
+    "category": {
+      "type": "string",
+      "minLength": 1
+    },
+    "answer": {
+      "type": "string",
+      "minLength": 1
+    },
+    "attempt": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "hint_used": {
+      "type": "boolean"
+    },
+    "critical_error": {
+      "type": "boolean"
+    },
+    "critical_reason": {
+      "type": "string"
+    },
+    "scores": {
+      "type": "object",
+      "required": [
+        "naturalness",
+        "boundaries",
+        "evidence",
+        "interaction",
+        "progression"
+      ],
+      "properties": {
+        "naturalness": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4
+        },
+        "boundaries": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4
+        },
+        "evidence": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4
+        },
+        "interaction": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4
+        },
+        "progression": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4
+        }
+      },
+      "additionalProperties": false
+    },
+    "errors": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "comprehension",
+          "evidence",
+          "expression",
+          "interaction",
+          "action",
+          "boundary"
+        ]
+      }
+    },
+    "action_planned": {
+      "type": [
+        "boolean",
+        "null"
+      ]
+    },
+    "action_completed": {
+      "type": [
+        "boolean",
+        "null"
+      ]
+    },
+    "total": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 20
+    },
+    "maximum": {
+      "const": 20
+    },
+    "passed": {
+      "type": "boolean"
+    },
+    "band": {
+      "enum": [
+        "excellent",
+        "pass",
+        "retry"
+      ]
+    },
+    "sequence": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "recorded_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "corpus_version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "case_fingerprint": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "teaching_task": {
+      "enum": [
+        "expression",
+        "judgment",
+        "information",
+        "adaptation"
+      ]
+    },
+    "record_origin": {
+      "enum": [
+        "session",
+        "transfer",
+        "legacy-import"
+      ]
+    },
+    "import_reason": {
+      "type": "string",
+      "minLength": 1
+    },
+    "hint_correction_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "communication_function": {
+      "enum": [
+        "share",
+        "vent",
+        "play",
+        "praise",
+        "question",
+        "invite",
+        "request",
+        "unknown"
+      ]
+    },
+    "signal_clarity": {
+      "enum": [
+        "explicit",
+        "ambiguous",
+        "mixed",
+        "unknown"
+      ]
+    }
+  },
+  "additionalProperties": false
+}

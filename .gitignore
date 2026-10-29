@@ -1,0 +1,16 @@
+__pycache__/
+*.pyc
+development/*conversation.txt
+development/upstream/
+personal-love-coach-data/
+dist/
+node_modules/
+personal-love-coach/evaluation/reports/*.json
+development/qa-*/
+development/qa-*.json
+development/qa-report.md
+development/install_verified_update.py
+.env
+.env.*
+!.env.example
+.venv/

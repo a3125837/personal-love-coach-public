@@ -1,0 +1,4 @@
+interface:
+  display_name: "个人恋爱教练"
+  short_description: "中文相亲与恋爱辅导、自然表达、三题训练、五维二十分考核及成长复盘"
+  default_prompt: "使用 $personal-love-coach 分析当前互动，给出一个可执行的下一步，并帮助我培养独立判断能力。"

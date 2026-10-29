@@ -1,0 +1,16 @@
+{
+  "id": "demo-session",
+  "revision": 1,
+  "mode": "training",
+  "state": "awaiting_answers",
+  "level": 2,
+  "rubric_version": "rubric-3.0",
+  "hint_used": false,
+  "updated_at": "2026-10-22",
+  "case_ids": [
+    "PLC-004",
+    "PLC-005",
+    "PLC-006"
+  ],
+  "answered_case_ids": []
+}

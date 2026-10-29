@@ -1,0 +1,218 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "id",
+    "revision",
+    "mode",
+    "state",
+    "level",
+    "rubric_version",
+    "hint_used",
+    "updated_at",
+    "case_ids",
+    "answered_case_ids"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{0,63}$"
+    },
+    "revision": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "mode": {
+      "enum": [
+        "training",
+        "exam"
+      ]
+    },
+    "state": {
+      "enum": [
+        "awaiting_answers",
+        "feedback",
+        "paused",
+        "completed"
+      ]
+    },
+    "level": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 6
+    },
+    "rubric_version": {
+      "const": "rubric-3.0"
+    },
+    "hint_used": {
+      "type": "boolean"
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date"
+    },
+    "case_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{0,63}$"
+      },
+      "minItems": 3,
+      "maxItems": 3,
+      "uniqueItems": true
+    },
+    "answered_case_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{0,63}$"
+      },
+      "maxItems": 3,
+      "uniqueItems": true
+    },
+    "converted_from_exam": {
+      "type": "boolean"
+    },
+    "opened_sequence": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "case_bindings": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{0,63}$"
+          },
+          "input": {
+            "type": "string",
+            "minLength": 1
+          },
+          "level": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 6
+          },
+          "category": {
+            "type": "string",
+            "minLength": 1
+          },
+          "split": {
+            "enum": [
+              "training",
+              "exam"
+            ]
+          },
+          "relationship_phase": {
+            "enum": [
+              "unknown",
+              "P1",
+              "P2",
+              "P3",
+              "P4",
+              "P5",
+              "P6",
+              "P7",
+              "P8"
+            ]
+          },
+          "corpus_version": {
+            "type": "string",
+            "minLength": 1
+          },
+          "fingerprint": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          },
+          "learning_context": {
+            "type": "object",
+            "required": [
+              "communication_function",
+              "signal_clarity"
+            ],
+            "properties": {
+              "communication_function": {
+                "enum": [
+                  "share",
+                  "vent",
+                  "play",
+                  "praise",
+                  "question",
+                  "invite",
+                  "request",
+                  "unknown"
+                ]
+              },
+              "signal_clarity": {
+                "enum": [
+                  "explicit",
+                  "ambiguous",
+                  "mixed",
+                  "unknown"
+                ]
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "id",
+          "input",
+          "level",
+          "category",
+          "split",
+          "relationship_phase",
+          "corpus_version",
+          "fingerprint"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "question_settings": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": [
+          "task",
+          "include_phase"
+        ],
+        "properties": {
+          "task": {
+            "enum": [
+              "expression",
+              "judgment",
+              "information",
+              "adaptation"
+            ]
+          },
+          "include_phase": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false,
+        "if": {
+          "properties": {
+            "include_phase": {
+              "const": true
+            }
+          }
+        },
+        "then": {
+          "properties": {
+            "task": {
+              "const": "expression"
+            }
+          }
+        }
+      }
+    }
+  },
+  "additionalProperties": false,
+  "dependentRequired": {
+    "case_bindings": [
+      "question_settings"
+    ]
+  }
+}

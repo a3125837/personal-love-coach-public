@@ -1,0 +1,24 @@
+{
+  "id": "example-a",
+  "alias": "虚构参与者星帆",
+  "revision": 1,
+  "updated_at": "2026-10-22",
+  "stage": "R1",
+  "status": "active",
+  "facts": [
+    {
+      "text": "虚构：在公开天文讲座中初次认识",
+      "source": "虚构示例",
+      "observed_at": "2026-10-22"
+    }
+  ],
+  "impressions": [],
+  "stage_history": [
+    {
+      "stage": "R1",
+      "date": "2026-10-22",
+      "evidence": "虚构设定：讲座结束后首次交换联系方式"
+    }
+  ],
+  "next_action": "就讲座中的公开话题简短问候"
+}
