@@ -31,6 +31,8 @@ def build(provider=None, judge=None, suite="holdout"):
     case_path = "evaluation/behavioral-regression.jsonl" if suite == "behavior" else "evaluation/holdout.jsonl"
     for case in read_jsonl(ROOT / case_path):
         paths = list(dict.fromkeys(common + ROUTES[case["mode"]]))
+        if case['mode'] in ('M2','M3','M5','M6'):
+            paths.append('references/interaction-engine.md')
         instructions = "\n\n".join((ROOT / path).read_text(encoding="utf-8") for path in paths)
         # Instructions only; cases, expected responses and failure rubrics stay outside the candidate prompt.
         assertion = {"type": "javascript", "value": "(() => { try { const r=JSON.parse(output); return typeof r === 'object' && r !== null && r.mode === context.vars.expected_mode && Array.isArray(r.facts) && Array.isArray(r.unknowns) && typeof r.action === 'string' && Array.isArray(r.reply) && r.reply.length <= 3 && typeof r.user_response === 'string'; } catch { return false; } })()"}

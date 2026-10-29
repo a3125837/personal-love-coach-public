@@ -11,3 +11,5 @@
 开会话时保存逐题question_settings，判断题/信息收集题不展示阶段；新会话自动绑定题干及版本。恢复时沿用快照与题型，遇到changed_case_ids仅复盘，不对新题干沿用旧回答评分。已有首答后的短接续可逐条用turn保存，恢复practice_turns，不能当成三道独立考题。阶段对照与评分争议时读[校准指南](../training/calibration-guide.md)。
 
 授权保存后，用learning-note另存用户reflection、教练coach_review和未回答状态response_status；coverage区分还没答、跳过、暂时不会以及已答未评分。笔记不替代answer或record，不创建分数。教练点评保存适用范围、支持和反证，不能把某种表达风格自动当成能力不足。
+
+V4创造性表达、综合训练接续和定性创造力复盘按[互动创造引擎](../references/interaction-engine.md)执行；四入口映射现有模式，不改考试、评分和持久化规则。

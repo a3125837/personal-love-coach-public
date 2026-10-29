@@ -1,5 +1,7 @@
 # 本地离线工具
 
+V4只读知识检索：`python scripts/interaction.py capabilities C01`、`topics T001`、`branches B01`。默认案例仅给题面；用户主动学习时加`--view study`查看三种表达与四分支。这些资源不自动创建会话、成绩、真实记忆或晋级资格；实际生成和选择由教练完成。详见[互动创造引擎](../references/interaction-engine.md)。
+
 3.1.0档案可选增加`relationship_phase`（unknown或P1–P8）和`phase_history`（非空事件列表，每项含phase、date、evidence），两者一起提供。日期有序且不晚于updated_at，最新事件须匹配当前阶段；修订保留全部旧历史并追加。旧`stage`/`stage_history`仍必需且保留原义。旧档案可直接读取，脚本不会从旧字段推断八段式，也不会自动判断真实关系。
 
 Python 3.10+，仅标准库。以下路径相对于已安装的 Skill；请先切到该目录或使用脚本绝对路径。无需 API 密钥。
